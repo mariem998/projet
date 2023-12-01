@@ -1,0 +1,19 @@
+
+<div >
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date</mat-label>
+    <input matInput [matDatepicker]="picker"
+    [min]="minDate" [max]="maxDate"
+    [matDatepickerFilter]="myDateFilter"
+    [(ngModel)]="selectedDate"
+    (ngModelChange)="onDateChange($event)">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+
+
+</div>
+

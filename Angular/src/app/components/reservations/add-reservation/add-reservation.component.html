@@ -1,0 +1,83 @@
+<div class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('assets/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+      <div class="col-md-9 ftco-animate pb-5">
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars Reservation <i class="ion-ios-arrow-forward"></i></span></p>
+        <h1 class="mb-3 bread">ADD Reservation</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="ftco-section ftco-degree-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 ftco-animate">
+        <div class="comment-form-wrap pt-2">
+          <form class="p-5 bg-light" (ngSubmit)="addReservation()" #reservationForm="ngForm">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group justify-content-center">
+                  <label for="name">Address *</label>
+                  <input type="text" class="form-control" id="address" name="address" [(ngModel)]="reservation.address">
+                </div>
+                <div class="form-group justify-content-center">
+                  <label for="name">Registration Number *</label>
+                  <input type="text" class="form-control" id="registration" name="registration" [(ngModel)]="reservation.registration">
+                </div>
+                <div class="form-group">
+                  <label for="price">Phone *</label>
+                  <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="reservation.phone">
+                </div>
+                <div class="form-group d-flex align-items-center">
+                  <label for="description" style="margin-bottom: 0;" class="mr-2">Start Date :</label>
+                  <div class="d-flex">
+                    <mat-form-field
+                      class="mr-5 Dp"
+                      appearance="fill">
+                        <mat-label>Enter a date</mat-label>
+                        <input name="startDate" id="startDate" matInput [matDatepicker]="picker"
+                        [min]="minDate" [max]="maxDate"
+                        [matDatepickerFilter]="myDateFilter"
+                        [(ngModel)]="reservation.dateDebut">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    <span class="ml-2 align-self-center mr-2">End Date :</span>
+                    <mat-form-field
+                      class="mr-6"
+                      appearance="fill">
+                        <mat-label>Enter a date</mat-label>
+                        <input name="endDate" id="endDate" matInput [matDatepicker]="picker2"
+                        [min]="minDate" [max]="maxDate"
+                        [matDatepickerFilter]="myDateFilter"
+                        [(ngModel)]="reservation.dateFin">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Status</label>
+                  <input type="text" class="form-control" id="Status" name="Status" [(ngModel)]="reservation.Status">
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="form-group d-flex justify-content-center">
+              <input type="submit" value="Préreserve" class="btn py-3 px-4 btn-primary">
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

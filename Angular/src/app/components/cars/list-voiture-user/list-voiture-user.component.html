@@ -1,0 +1,35 @@
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('assets/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+      <div class="col-md-9 ftco-animate pb-5">
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
+        <h1 class="mb-3 bread">Choose Your Car</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let car of cars">
+        <div class="car-wrap rounded ftco-animate">
+          <div class="img rounded d-flex align-items-end" [style.background-image]="'url('+getImageUrl(car)+')'"></div>
+          <div class="text">
+            <h2 class="mb-0"><a href="car-single.html">{{ car.name }}</a></h2>
+            <div class="d-flex mb-3">
+              <span class="cat">{{ car.model }}</span>
+              <p class="price ml-auto">{{ car.price_per_day }} <span>/day</span></p>
+            </div>
+            <app-button-details-edit (editClicked)="editCar(car)"></app-button-details-edit>
+            <app-button-add-delete (deleteClicked)="deleteCar(car)"></app-button-add-delete>
+            <app-button-reserve (click)="reserveCar(car)" >Book now</app-button-reserve>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

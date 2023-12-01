@@ -1,0 +1,27 @@
+<div class="test">
+	<div class="container1 right-panel-active">
+	
+		<!-- Sign In -->
+		<div class="container1__form container1--signin">
+			<form (ngSubmit)="onSubmit()" class="form" id="form2" #loginForm="ngForm">
+				<h2 class="form__title">Sign In</h2>
+				<div *ngIf="loginError" class="error-message">Username or password incorrect</div>
+				<input type="text" placeholder="Username" name="username" [(ngModel)]="username" class="input" required>
+				<input type="password" placeholder="Password" name="password" [(ngModel)]="password" class="input" required>
+				<a href="#" class="link1">Forgot your password?</a>
+				<button type="submit" class="btn1" [disabled]="loginForm.invalid">Sign In</button>
+			</form>
+		</div>
+	
+		<!-- Overlay -->
+		<div class="container1__overlay1">
+			<div class="overlay1">
+				<div class="overlay1__panel overlay1--left">
+					<a href="/inscrire-user"><button class="btn1" id="signUp">Sign Up Client</button></a>
+                    <ul></ul>
+                    <a href="/inscrire-agency"><button class="btn1" id="signUp">Sign Up Agency</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

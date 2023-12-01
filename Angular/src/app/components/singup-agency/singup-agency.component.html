@@ -1,0 +1,69 @@
+<div class="test">
+	<div class="container2 right-panel-active">
+	  <!-- Sign Up -->
+	  <div class="container1__form container1--signup">
+		<form action="#" [formGroup]="agencyDataForm" class="form" id="form1" (ngSubmit)="onSubmit()">
+		  <h2 class="form__title">Sign Up Agency</h2>
+
+		  <div *ngIf="usernameExists" class="error-message">username exists, re-enter another</div>
+		  
+		  <input type="text" placeholder="Username" formControlName="username" class="input" />
+		  <div *ngIf="agencyDataForm.get('username')?.hasError('required') && agencyDataForm.get('username')?.touched" class="error-text">
+			Username is required.
+		  </div>
+
+		  <input type="text" placeholder="Manager name" formControlName="managerName" class="input" />
+		  <div *ngIf="agencyDataForm.get('managerName')?.hasError('required') && agencyDataForm.get('managerName')?.touched" class="error-text">
+			Manager name is required.
+		  </div>
+		  
+		  <input type="email" placeholder="Email" formControlName="email" class="input" />
+		  <div *ngIf="agencyDataForm.get('email')?.hasError('required') && agencyDataForm.get('email')?.touched" class="error-text">
+			Email is required.
+		  </div>
+		  <div *ngIf="agencyDataForm.get('email')?.hasError('email') && agencyDataForm.get('email')?.touched" class="error-text">
+			Invalid email address.
+		  </div>
+
+		  <input type="text" placeholder="Address" formControlName="address" class="input" />
+		  <div *ngIf="agencyDataForm.get('address')?.hasError('required') && agencyDataForm.get('address')?.touched" class="error-text">
+			Address is required.
+		  </div>
+
+		  <input type="text" placeholder="Tax registration number" formControlName="taxRegistrationNumber" class="input" />
+		  <div *ngIf="agencyDataForm.get('taxRegistrationNumber')?.hasError('required') && agencyDataForm.get('taxRegistrationNumber')?.touched" class="error-text">
+			Tax registration number is required.
+		  </div>
+
+		  <input type="text" placeholder="Phone number" formControlName="number" class="input" />
+		  <div *ngIf="agencyDataForm.get('number')?.hasError('required') && agencyDataForm.get('number')?.touched" class="error-text">
+			Phone number is required.
+		  </div>
+		  <div *ngIf="agencyDataForm.get('number')?.hasError('minlength') && agencyDataForm.get('number')?.touched" class="error-text">
+			Number must have 6 digits.
+		  </div>
+
+		  <input type="password" placeholder="Password" formControlName="password" class="input" />
+		<div *ngIf="agencyDataForm.get('password')?.hasError('required') && agencyDataForm.get('password')?.touched" class="error-text">
+			Password is required.
+		</div>
+		<div *ngIf="agencyDataForm.get('password')?.hasError('minlength') && agencyDataForm.get('password')?.touched" class="error-text">
+			Password must be at least 6 characters.
+		</div>
+
+		  <a href="/inscrire-user" style="color: black;">Sign up client</a>
+		  <button type="submit" class="btn1" (click)="signUp()">Sign Up</button>
+		</form>
+	  </div>
+  
+	  <!-- Overlay -->
+	  <div class="container1__overlay1">
+		<div class="overlay1">
+		  <div class="overlay1__panel overlay1--left">
+			<a href="/login"><button class="btn1" id="signIn">Sign In</button></a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  

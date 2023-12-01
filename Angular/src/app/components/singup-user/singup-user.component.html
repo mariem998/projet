@@ -1,0 +1,56 @@
+<div class="test">
+	<div class="container1 right-panel-active">
+		<!-- Sign Up -->
+		<div class="container1__form container1--signup">
+			<form [formGroup]="userDataForm" (ngSubmit)="signUp()" class="form" id="form1">
+				<h2 class="form__title">Sign Up Client</h2>
+				
+				<div *ngIf="usernameExists" class="error-message">username exists, re-enter another</div>
+
+				<input type="text" placeholder="Username" formControlName="username" class="input" />
+				
+				<div *ngIf="userDataForm.get('username')?.hasError('required') && userDataForm.get('username')?.touched" class="error-message">
+				  Username is required.
+				</div>
+
+				<input type="email" placeholder="Email" formControlName="email" class="input" />
+				<div *ngIf="userDataForm.get('email')?.hasError('required') && userDataForm.get('email')?.touched" class="error-message">
+				  Email is required.
+				</div>
+				<div *ngIf="userDataForm.get('email')?.hasError('email') && userDataForm.get('email')?.touched" class="error-message">
+				  Invalid email address.
+				</div>
+			  
+				<input type="text" placeholder="Driving License" formControlName="drivingLicense" class="input" />
+				<div *ngIf="userDataForm.get('drivingLicense')?.hasError('required') && userDataForm.get('drivingLicense')?.touched" class="error-message">
+				  Driving License is required.
+				</div>
+			  
+				<input type="password" placeholder="Password" formControlName="password" class="input" />
+				<div *ngIf="userDataForm.get('password')?.hasError('required') && userDataForm.get('password')?.touched" class="error-message">
+					Password is required.
+				  </div>
+				<div *ngIf="userDataForm.get('password')?.hasError('minlength') && userDataForm.get('password')?.touched" class="error-message">
+				  Password must be at least 6 characters.
+				</div>
+			  
+				<a href="/inscrire-agency" style="color: black;">Sign up agency</a>
+				<button type="submit" class="btn1" [disabled]="userDataForm.invalid">Sign Up</button>
+			  </form>
+		</div>
+	
+		<!-- Overlay -->
+		<div class="container1__overlay1">
+			<div class="overlay1">
+				<div class="overlay1__panel overlay1--left">
+					<a href="/login"><button class="btn1" id="signIn" >Sign In</button> </a>
+				</div>
+				<div class="overlay1__panel overlay1--right">
+					<div>
+						<button class="btn1" id="signUp">Sign Up</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
