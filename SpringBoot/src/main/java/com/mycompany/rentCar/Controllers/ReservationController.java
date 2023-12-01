@@ -17,7 +17,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(origins = "http://50.16.248.154:4200")
+@CrossOrigin(origins = "http://3.89.76.189:4200")
 @RestController
 @RequestMapping("/api/reservation")
 public class ReservationController {

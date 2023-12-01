@@ -9,11 +9,11 @@ import { throwError } from 'rxjs';
 })
 export class AuthenticateService {
 
-  private apiUrl = 'http://50.16.248.154:8081/api';
-  
+  private apiUrl = 'http://3.89.76.189:8081/api';
+
   constructor(private http: HttpClient) {
   }
-  
+
   signupAgency(agencyData: any): Observable<any> {
     return this.checkUsernameExistsAgency(agencyData.username).pipe(
       switchMap((usernameExists) => {
@@ -29,7 +29,7 @@ export class AuthenticateService {
       })
     );
   }
-  
+
   signupUser(userData: any): Observable<any> {
     return this.checkUsernameExists(userData.username).pipe(
       switchMap((usernameExists) => {
@@ -60,10 +60,10 @@ export class AuthenticateService {
     const body = new HttpParams()
       .set('username', loginData.username)
       .set('password', loginData.password);
-  
+
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
-  
+
     return this.http.post(`${this.apiUrl}/authenticate`, body.toString(), { headers })
       .pipe(
         tap((response: any) => {

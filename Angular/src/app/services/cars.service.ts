@@ -7,7 +7,7 @@ import { CarDTO } from '../Models/CarDTO';
   providedIn: 'root'
 })
 export class CarsService {
-  private apiUrl = 'http://50.16.248.154:8081/api/cars';
+  private apiUrl = 'http://3.89.76.189:8081/api/cars';
 
 
   constructor(private http: HttpClient) { }
@@ -24,10 +24,10 @@ export class CarsService {
     const headers = new HttpHeaders({
       'enctype': 'multipart/form-data'
     });
-  
+
     return this.http.put(`${this.apiUrl}/updateCar/${carId}`, formData, { headers });
   }
-  
+
 
   getAllCars(): Observable<CarDTO[]> {
     return this.http.get<CarDTO[]>(`${this.apiUrl}/getAllCars`);
@@ -38,11 +38,11 @@ export class CarsService {
     return this.http.delete(url, { responseType: 'text' }).pipe(
       catchError((error: any) => {
         console.error('Error deleting car:', error);
-        throw error; 
+        throw error;
       }),
       map((response: any) => {
-        console.log(response); 
-        return; 
+        console.log(response);
+        return;
       })
     );
   }
