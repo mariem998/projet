@@ -8,6 +8,6 @@ EXPOSE 8081
 
 CMD ["java", "-jar", "SpringBoot-1.0-SNAPSHOT.jar"]
 
-LABEL maintainer="Your Name <rahmasassi12335@gmail.com>"
+LABEL maintainer="Your Name <mariemjaziri55@gmail.com>"
 LABEL version="1.0"
 LABEL description="Docker image for Spring Boot Java 11 application"
